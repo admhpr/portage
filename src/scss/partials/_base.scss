@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .stars,
 .twinkling,
 .clouds,
@@ -13,9 +18,7 @@
 }
 
 .stars {
-  background: black
-    url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top
-    center;
+  background: black url(../img/stars_alt.png) repeat top center;
   z-index: 0;
 }
 
@@ -86,8 +89,8 @@
 }
 
 h1 {
-  font-family: Archivo Black;
-  font-size: 4.5vw;
+  font-family: $font;
+  font-size: 2em;
   color: white;
 }
 
@@ -102,7 +105,7 @@ h1 {
   // top: 88px;
   top: 30vh;
   z-index: 5;
-  background-image: url(../img/img-1.png);
+  background-image: url(../img/northernLights.png);
   background-size: 100% 400px;
   background-repeat: no-repeat;
 }
@@ -144,7 +147,7 @@ h1 {
 .content {
   position: absolute;
   top: 1000px;
-  background: #00002b;
+  background: #000e3c;
   width: 100%;
   min-height: 1500px;
 }
@@ -152,13 +155,12 @@ h1 {
 .content h1 {
   color: #fff;
   font-size: 2em;
-  text-transform: uppercase;
   text-align: center;
 }
 
 body {
   height: 100vw;
-  background: #00002b;
+  background: #000e3c;
 }
 
 #header {

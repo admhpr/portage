@@ -1,3 +1,90 @@
+@import url("https://fonts.googleapis.com/css?family=Rye");
+.outer-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative; }
+
+.auroral-northern {
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  -webkit-animation-name: northern;
+          animation-name: northern;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  background: linear-gradient(10deg, #a1d9b4 20%, #32988a 40%, #000e3c 65%); }
+
+.trees {
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: none;
+          transform: none;
+  width: 100%; }
+
+@-webkit-keyframes northern {
+  0% {
+    -webkit-transform: translate(5%, -2%);
+            transform: translate(5%, -2%); }
+  25% {
+    -webkit-transform: translate(10%, 7%);
+            transform: translate(10%, 7%); }
+  40% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg); }
+  60% {
+    -webkit-transform: translate(7%, -2%);
+            transform: translate(7%, -2%); }
+  85% {
+    -webkit-transform: translate(6%, 3%) rotate(12deg);
+            transform: translate(6%, 3%) rotate(12deg); }
+  100% {
+    -webkit-transform: none;
+            transform: none; } }
+
+@keyframes northern {
+  0% {
+    -webkit-transform: translate(5%, -2%);
+            transform: translate(5%, -2%); }
+  25% {
+    -webkit-transform: translate(10%, 7%);
+            transform: translate(10%, 7%); }
+  40% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg); }
+  60% {
+    -webkit-transform: translate(7%, -2%);
+            transform: translate(7%, -2%); }
+  85% {
+    -webkit-transform: translate(6%, 3%) rotate(12deg);
+            transform: translate(6%, 3%) rotate(12deg); }
+  100% {
+    -webkit-transform: none;
+            transform: none; } }
+
+/* Now we just style this one 1px by 1px div to be a round dot fixed in top left corner */
+.auroral-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: white; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
 .stars,
 .twinkling,
 .clouds,
@@ -12,7 +99,7 @@
   display: block; }
 
 .stars {
-  background: black url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+  background: black url(../img/stars_alt.png) repeat top center;
   z-index: 0; }
 
 .twinkling {
@@ -80,8 +167,8 @@
   background-repeat: no-repeat; }
 
 h1 {
-  font-family: Archivo Black;
-  font-size: 4.5vw;
+  font-family: "Rye", cursive;
+  font-size: 2em;
   color: white; }
 
 .layer-1 {
@@ -93,7 +180,7 @@ h1 {
 .layer-2 {
   top: 30vh;
   z-index: 5;
-  background-image: url(../img/img-1.png);
+  background-image: url(../img/northernLights.png);
   background-size: 100% 400px;
   background-repeat: no-repeat; }
 
@@ -130,19 +217,18 @@ h1 {
 .content {
   position: absolute;
   top: 1000px;
-  background: #00002b;
+  background: #000e3c;
   width: 100%;
   min-height: 1500px; }
 
 .content h1 {
   color: #fff;
   font-size: 2em;
-  text-transform: uppercase;
   text-align: center; }
 
 body {
   height: 100vw;
-  background: #00002b; }
+  background: #000e3c; }
 
 #header {
   position: fixed;
