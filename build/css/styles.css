@@ -1,4 +1,71 @@
 @import url("https://fonts.googleapis.com/css?family=Rye");
+/*Colors*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box; }
+
+.flex-container:nth-child(even) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  width: 80%; }
+
+.right {
+  background-color: red;
+  padding: 15%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+  .right .inner {
+    background-color: #E3E8E3;
+    padding: 10%; }
+
+.left {
+  background-color: blue;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 15%; }
+
+body {
+  background: linear-gradient(to bottom, #002131 0%, #19629e 60%);
+  margin: 0; }
+  body .star-title {
+    font-family: 'Open sans', sans-serif;
+    font-size: 4em;
+    text-align: center;
+    font-weight: 300;
+    color: #E3E8E3;
+    text-transform: lowercase;
+    text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.3);
+    margin: 0;
+    padding-top: 5%; }
+    body .star-title.sub {
+      font-size: 2em; }
+  body .main {
+    background-color: #18191b;
+    width: 100%;
+    height: 100vh;
+    margin-top: -20px;
+    z-index: -50; }
+  body .content {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #E3E8E3;
+    height: 100%; }
+
+#stars {
+  top: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  z-index: -100; }
+
 .outer-container {
   width: 100vw;
   height: 100vh;
@@ -80,181 +147,3 @@
   height: 1px;
   border-radius: 50%;
   background: white; }
-
-* {
-  margin: 0;
-  padding: 0; }
-
-.stars,
-.twinkling,
-.clouds,
-.sky {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: block; }
-
-.stars {
-  background: black url(../img/stars_alt.png) repeat top center;
-  z-index: 0; }
-
-.twinkling {
-  background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
-  z-index: 1;
-  opacity: 0.9;
-  -webkit-animation: move-twink-back 200s linear infinite;
-          animation: move-twink-back 200s linear infinite; }
-
-.clouds {
-  background: transparent url(http://www.script-tutorials.com/demos/360/images/clouds2.png) repeat top center;
-  z-index: 2;
-  -webkit-animation: move-twink-back 200s linear infinite;
-          animation: move-twink-back 200s linear infinite; }
-
-@-webkit-keyframes move-clouds-back {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: 10000px 0; } }
-
-@keyframes move-clouds-back {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: 10000px 0; } }
-
-@-webkit-keyframes move-twink-back {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: -10000px 5000px; } }
-
-@keyframes move-twink-back {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: -10000px 5000px; } }
-
-.parallax-container {
-  position: fixed;
-  overflow: visible;
-  width: 100%;
-  height: 500px; }
-
-.parallax-layer {
-  width: 100%;
-  height: 500px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background-position: bottom center;
-  background-repeat: repeat-x;
-  background-size: 960px 253px; }
-
-.parallax-layer.layer-0 {
-  top: 10vh;
-  width: 100%;
-  height: 10%;
-  display: block;
-  margin: 0 auto;
-  z-index: 6;
-  text-align: center;
-  background-size: 100% 35vh;
-  background-repeat: no-repeat; }
-
-h1 {
-  font-family: "Rye", cursive;
-  font-size: 2em;
-  color: white; }
-
-.layer-1 {
-  z-index: 5;
-  background-repeat: no-repeat;
-  background: linear-gradient(#75a5db, #d0ceda);
-  height: 600px; }
-
-.layer-2 {
-  top: 30vh;
-  z-index: 5;
-  background-image: url(../img/northernLights.png);
-  background-size: 100% 400px;
-  background-repeat: no-repeat; }
-
-.layer-3 {
-  top: 45vh;
-  z-index: 10;
-  background-image: url(../img/img-2.png);
-  background-repeat: no-repeat;
-  background-size: 54% 300px;
-  left: 8vw; }
-
-.layer-4 {
-  top: 36vh;
-  z-index: 15;
-  background-image: url(../img/img-3.png);
-  background-size: 100% 410px;
-  background-repeat: no-repeat; }
-
-.layer-5 {
-  top: 55vh;
-  z-index: 20;
-  background-image: url(../img/img-5.png);
-  background-size: 100% 500px;
-  background-repeat: no-repeat;
-  left: 0px; }
-
-.layer-6 {
-  top: 55vh;
-  z-index: 25;
-  background-image: url(../img/img-7.png);
-  background-size: 100% 290px;
-  background-repeat: no-repeat; }
-
-.content {
-  position: absolute;
-  top: 1000px;
-  background: #000e3c;
-  width: 100%;
-  min-height: 1500px; }
-
-.content h1 {
-  color: #fff;
-  font-size: 2em;
-  text-align: center; }
-
-body {
-  height: 100vw;
-  background: #000e3c; }
-
-#header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  background-color: #353e43;
-  transition: all 0.25s ease-in-out;
-  height: 20px;
-  z-index: 20; }
-  #header.scrolled {
-    background-color: #dfe4e8; }
-    #header.scrolled .logo,
-    #header.scrolled .nav-items li a {
-      color: black; }
-
-.logo {
-  float: left;
-  color: #fff; }
-
-.nav-items {
-  float: right;
-  margin: 0 10px 0 0; }
-  .nav-items li {
-    display: inline-block;
-    padding: 0 5px; }
-    .nav-items li a {
-      color: #fff; }

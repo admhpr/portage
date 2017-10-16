@@ -1,0 +1,40 @@
+body {
+    header {}
+    background: linear-gradient(to bottom, #002131 0%, #19629e 60%);
+    margin: 0;
+    .star-title {
+        font-family: 'Open sans', sans-serif;
+        font-size: 4em;
+        text-align: center;
+        font-weight: 300;
+        color: $light;
+        text-transform: lowercase;
+        text-shadow: 1px 1px 20px hsla(0, 100%, 100%, 0.3);
+        margin: 0;
+        padding-top: 5%;
+        &.sub {
+            font-size: $title-size / 2;
+        }
+    }
+    .main {
+        background-color: darken($dark, 2);
+        width: 100%;
+        height: 100vh;
+        margin-top: -20px;
+        z-index: -50;
+    }
+    .content {
+        width: 80%;
+        margin: 0 auto;
+        background-color: $light;
+        @include height();
+    }
+}
+
+#stars {
+    top: 0;
+    position: absolute;
+    width: 100vw;
+    @include height();
+    z-index: -100;
+}

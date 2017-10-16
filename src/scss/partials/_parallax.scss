@@ -1,0 +1,182 @@
+// * {
+//   margin: 0;
+//   padding: 0;
+// }
+// .stars,
+// .twinkling,
+// .clouds,
+// .sky {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   width: 100%;
+//   height: 100%;
+//   display: block;
+// }
+// .stars {
+//   background: black url(../img/stars_alt.png) repeat top center;
+//   z-index: 0;
+// }
+// .twinkling {
+//   background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+//   z-index: 1;
+//   opacity: 0.9;
+//   animation: move-twink-back 200s linear infinite;
+// }
+// .clouds {
+//   background: transparent url(http://www.script-tutorials.com/demos/360/images/clouds2.png) repeat top center;
+//   z-index: 2;
+//   animation: move-twink-back 200s linear infinite;
+// }
+// @keyframes move-clouds-back {
+//   from {
+//     background-position: 0 0;
+//   }
+//   to {
+//     background-position: 10000px 0;
+//   }
+// }
+// @keyframes move-twink-back {
+//   from {
+//     background-position: 0 0;
+//   }
+//   to {
+//     background-position: -10000px 5000px;
+//   }
+// }
+// ///**********************>>>> STARs End.
+// .parallax-container {
+//   position: fixed;
+//   overflow: visible;
+//   width: 100%;
+//   height: 500px;
+// }
+// .parallax-layer {
+//   width: 100%;
+//   height: 500px;
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   background-position: bottom center;
+//   background-repeat: repeat-x;
+//   background-size: 960px 253px;
+// }
+// .parallax-layer.layer-0 {
+//   top: 10vh;
+//   width: 100%;
+//   height: 10%;
+//   display: block;
+//   margin: 0 auto;
+//   z-index: 6;
+//   text-align: center;
+//   background-size: 100% 35vh;
+//   background-repeat: no-repeat;
+// }
+// .tile-box {
+//   padding: 2.5em;
+//   background-color: darken($light, 10);
+//   width: 33%;
+//   margin: 0 auto;
+//   border-radius: 5px;
+//   background: url(../img/textures/wood.png);
+//   h1 {
+//     font-family: $font;
+//     font-size: 2em;
+//     color: $lt-brown;
+//   }
+// }
+// .layer-1 {
+//   z-index: 5;
+//   background-repeat: no-repeat;
+//   background: linear-gradient(#75a5db, #d0ceda);
+//   height: 600px;
+// }
+// .layer-2 {
+//   // top: 88px;
+//   top: 30vh;
+//   z-index: 5;
+//   background-image: url(../img/northernLights.png);
+//   background-size: 100% 400px;
+//   background-repeat: no-repeat;
+// }
+// .layer-3 {
+//   top: 45vh;
+//   z-index: 10;
+//   background-image: url(../img/img-2.png);
+//   background-repeat: no-repeat;
+//   background-size: 54% 300px;
+//   left: 8vw;
+// }
+// .layer-4 {
+//   top: 36vh;
+//   z-index: 15;
+//   background-image: url(../img/img-3.png);
+//   background-size: 100% 410px;
+//   background-repeat: no-repeat;
+// }
+// .layer-5 {
+//   top: 55vh;
+//   z-index: 20;
+//   background-image: url(../img/img-5.png);
+//   background-size: 100% 500px;
+//   background-repeat: no-repeat;
+//   left: 0px;
+// }
+// .layer-6 {
+//   top: 55vh;
+//   z-index: 25;
+//   background-image: url(../img/img-7.png);
+//   background-size: 100% 290px;
+//   background-repeat: no-repeat;
+// }
+// .content {
+//   position: absolute;
+//   top: 1000px;
+//   background: #000e3c;
+//   width: 100%;
+//   min-height: 1500px;
+// }
+// .content h1 {
+//   color: #fff;
+//   font-size: 2em;
+//   text-align: center;
+// }
+// body {
+//   height: 100vw;
+//   background: #000e3c;
+// }
+// #header {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   padding: 10px;
+//   background-color: #353e43;
+//   transition: all 0.25s ease-in-out;
+//   height: 20px;
+//   z-index: 20;
+//   &.scrolled {
+//     background-color: #dfe4e8;
+//     .logo,
+//     .nav-items li a {
+//       color: black;
+//     }
+//   }
+// }
+// .logo {
+//   float: left;
+//   color: #fff;
+// }
+// .nav-items {
+//   float: right;
+//   margin: 0 10px 0 0;
+//   li {
+//     display: inline-block;
+//     padding: 0 5px;
+//     a {
+//       color: #fff;
+//     }
+//   }
+// }

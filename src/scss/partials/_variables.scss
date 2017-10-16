@@ -1,3 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Rye');
 
-$font: "Rye", cursive;
+/*Colors*/
+
+// greens
+$lt-green: #B8C9AB;
+$md-green: #849E73;
+$dk-green: #4E5735;
+// browns
+$lt-brown: #A88F79;
+$md-brown: #6F4736;
+$dk-brown: #362421;
+// mono
+$light: #E3E8E3;
+$medium: #423D3B;
+$dark: #1D1E20;
+// fonts
+$font: "Rye",
+cursive;
+$title-size: 4em;

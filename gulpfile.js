@@ -4,6 +4,7 @@ var // modules
   newer = require("gulp-newer"),
   imagemin = require("gulp-imagemin"),
   htmlclean = require("gulp-htmlclean"),
+  wait = require("gulp-wait"),
   concat = require("gulp-concat"),
   deporder = require("gulp-deporder"),
   stripdebug = require("gulp-strip-debug"),
@@ -26,7 +27,7 @@ folder = {
 };
 
 // image processing
-gulp.task("img", function() {
+gulp.task("img", function () {
   var out = folder.build + "img/";
   return gulp
     .src(folder.src + "img/**/*")
@@ -40,7 +41,7 @@ gulp.task("img", function() {
 });
 
 // HTML processing
-gulp.task("html", ["img"], function() {
+gulp.task("html", ["img"], function () {
   var out = folder.build + "html/",
     page = gulp.src(folder.src + "html/**/*").pipe(newer(out));
 
@@ -53,7 +54,7 @@ gulp.task("html", ["img"], function() {
 });
 
 // JavaScript processing //change vars to reflect folders
-gulp.task("js", function() {
+gulp.task("js", function () {
   var build = gulp
     .src(folder.src + "js/**/*")
     .pipe(deporder())
@@ -72,7 +73,7 @@ gulp.task("js", function() {
 });
 
 // CSS processing // Sass
-gulp.task("css", ["img"], function() {
+gulp.task("css", ["img"], function () {
   var postCssOpts = [
     assets({
       loadPaths: ["img/"]
@@ -89,9 +90,11 @@ gulp.task("css", ["img"], function() {
 
   return gulp
     .src(folder.src + "scss/*")
+    .pipe(wait(500))
     .pipe(
       scss({
         outputStyle: "nested",
+        includePaths: [folder.src + "/scss/partials/**"],
         imagePath: "img/",
         precision: 3,
         errLogToConsole: true
@@ -106,7 +109,7 @@ gulp.task("css", ["img"], function() {
 var gulp = require("gulp");
 var webserver = require("gulp-webserver");
 
-gulp.task("webserver", function() {
+gulp.task("webserver", function () {
   gulp.src("./").pipe(
     webserver({
       livereload: true,
@@ -120,7 +123,7 @@ gulp.task("webserver", function() {
 gulp.task("run", ["html", "css", "js", "webserver"]);
 
 // watch for changes
-gulp.task("watch", function() {
+gulp.task("watch", function () {
   // image changes
   gulp.watch(folder.src + "img/**/*", ["img"]);
 
