@@ -1,180 +1,136 @@
 'use strict';
 
+/**
+ * The DOMContentLoaded event is fired when the initial HTML 
+ * document has been completely loaded and parsed, without waiting for stylesheets, images, 
+ * and subframes to finish loading.
+ * 
+ * Ideal for Animation
+ */
+
 document.addEventListener('DOMContentLoaded', function () {
 
-        // Init ScrollMagic
-        var controller = new ScrollMagic.Controller({
-                globalSceneOptions: {
-                        triggerHook: 'onLeave'
-                }
-        });
-
-        var wh = wh = window.innerHeight;
-        var right_1 = _(".right:first-child");
-        var right_2 = _(".right:nth-of-type(2)");
-        var right_3 = _(".right:nth-of-type(3)");
-        var inner_rt = _(".right > .inner");
-
-        console.log(inner_rt);
-        var left_1 = _(".left:nth-of-type(1)");
-        var left_2 = _(".left:nth-of-type(2)");
-        var left_3 = _(".left:nth-of-type(3)");
-        var inner_left = _(".left > .inner");
-
-        var trees = _(".trees");
-        // var mediaE = _(".media:nth-child(even)");
-        // var mediaO = _(".media:nth-child(odd)");
-
-        _(".flex-container").forEach(function (el) {
-                new ScrollMagic.Scene({
-                        triggerElement: el
-                }).setPin(el).addTo(controller);
-        });
-
-        var introTl = new TimelineMax();
-        var secondTl = new TimelineMax();
-
-        introTl.from(right_1, 1, {
-                yPercent: 50,
-                xPercent: 100,
-                ease: Power4.easeOut
-        }).from(inner_rt, 1, {
-                opacity: 0,
-                y: -205,
-                scale: 0.98
-        }, '1');
-
-        // secondTl
-        //     .from(left_2, 1, {
-        //         x: -250,
-        //         ease: Power4.easeOut
-        //     })
-        //     .from(right_2, 1, {
-        //         yPercent: 100,
-        //         xPercent: 50,
-        //         ease: Power4.easeOut
-        //     })
-
-
-        new ScrollMagic.Scene({
-                duration: '100%'
-        }).setTween(introTl).triggerElement(_(".content")).addIndicators().addTo(controller);
-
-        // new ScrollMagic.Scene({
-        //         triggerElement: _(".right"),
-        //         duration: '80%'
-        //     })
-        //     .setTween(secondTl)
-        //     .addTo(controller);
-
-        // var scene1 = new ScrollMagic.Scene({
-        //     triggerElement: right_odd,
-        // });
-
-        // scene1.setTween(TweenMax.from(right_odd, 1, {
-        //         y: '-105',
-        //         autoAlpha: 0,
-        //         ease: Power1.easein
-        //     }))
-        //     .addIndicators()
-        //     .addTo(controller);
-
-
-        // var tl = new TimelineLite();
-
-        // tl
-        //     .from(mediaO, 0.5, {
-        //         x: 105,
-        //         autoAlpha: 0,
-        //         ease: Power1.easein
-        //     })
-        //     .from(mediaE, 0.5, {
-        //         x: -105,
-        //         autoAlpha: 0,
-        //         ease: Power1.easein
-        //     }, '-=0.4')
-        //     .from(img, 0.5, {
-        //         y: -105,
-        //         autoAlpha: 0,
-        //         ease: Power1.easein
-        //     }, '-=0.25');
-
-        /********* utils *******/
-        function _(selector) {
-                return document.querySelectorAll(selector);
+    // Init ScrollMagic
+    var controller = new ScrollMagic.Controller({
+        globalSceneOptions: {
+            triggerHook: 'onLeave'
         }
+    });
+
+    var wh = wh = window.innerHeight;
+    var right_1 = _(".right:first-child");
+    var right_2 = _(".right:nth-of-type(2)");
+    var right_3 = _(".right:nth-of-type(3)");
+    var inner_rt = _(".right > .inner");
+    var left_1 = _(".left:nth-of-type(1)");
+    var left_2 = _(".left:nth-of-type(2)");
+    var left_3 = _(".left:nth-of-type(3)");
+    var inner_left = _(".left > .inner");
+
+    var trees = _(".trees");
+
+    _(".flex-container").forEach(function (el) {
+        new ScrollMagic.Scene({
+            triggerElement: el
+        }).setPin(el).addTo(controller);
+    });
+
+    var introTl = new TimelineMax();
+    var secondTl = new TimelineMax();
+    var scramble = new TimelineMax();
+
+    introTl.from(right_1, 3, {
+        yPercent: 50,
+        xPercent: 100,
+        ease: Power4.easeOut
+    }).from(inner_rt, 1, {
+        opacity: 0,
+        y: -205,
+        scale: 0.98
+    }, '1');
+
+    new ScrollMagic.Scene({
+        duration: '100%'
+    }).setTween(introTl).triggerElement(_(".content")).addIndicators().addTo(controller);
 }, false);
-// var ParallaxManager, ParallaxPart;
 
-// ParallaxPart = (function() {
-//   function ParallaxPart(el) {
-//     this.el = el;
-//     this.speed = parseFloat(this.el.getAttribute("data-parallax-speed"));
-//     this.maxScroll = parseInt(this.el.getAttribute("data-max-scroll"));
-//   }
+// a little mmodule to animate the text
+// inspired by https://codepen.io/rachsmith/pen/BNKJme/
 
-//   ParallaxPart.prototype.update = function(scrollY) {
-//     if (scrollY > this.maxScroll) {
-//       return;
-//     }
-//     var offset = -(scrollY * this.speed);
-//     this.setYTransform(offset);
-//   };
+var animatedText = function () {
 
-//   ParallaxPart.prototype.setYTransform = function(val) {
-//     this.el.style.webkitTransform = "translate3d(0, " + val + "px, 0)";
-//     this.el.style.MozTransform = "translate3d(0, " + val + "px, 0)";
-//     this.el.style.OTransform = "translate3d(0, " + val + "px, 0)";
-//     this.el.style.transform = "translate3d(0, " + val + "px, 0)";
-//     this.el.style.msTransform = "translateY(" + val + "px)";
-//   };
+    debugger;
+    // NodeList of el with class of word
+    var words = _(".word");
+    // eventually a 2d array with arrays of letters
+    var wordArr = [];
+    var curWord = 0;
 
-//   return ParallaxPart;
-// })();
+    //makes the first word visible
+    words[curWord].style.opacity = 1;
 
-// ParallaxManager = (function() {
-//   ParallaxManager.prototype.parts = [];
+    // call split letters on each word
+    words.forEach(function (word) {
+        splitLetters(word);
+    });
 
-//   function ParallaxManager(elements) {
-//     if (Array.isArray(elements) && elements.length) {
-//       this.elements = elements;
-//     }
+    function changeWord() {
+        var cw = wordArr[curWord];
+        var nw = curWord == words.length - 1 ? wordArr[0] : wordArr[curWord + 1];
 
-//     if (typeof elements === "object" && elements.item) {
-//       this.elements = Array.prototype.slice.call(elements);
-//     } else if (typeof elements === "string") {
-//       this.elements = document.querySelectorAll(elements);
-//       if (this.elements.length === 0) {
-//         throw new Error("Parallax: No elements found");
-//       }
-//       this.elements = Array.prototype.slice.call(this.elements);
-//     } else {
-//       throw new Error(
-//         "Parallax: Element variable is not a querySelector string, Array, or NodeList"
-//       );
-//     }
-//     for (var i in this.elements) {
-//       this.parts.push(new ParallaxPart(this.elements[i]));
-//     }
-//     window.addEventListener("scroll", this.onScroll.bind(this));
-//   }
+        for (var i = 0; i < cw.length; i++) {
+            animateLetterOut(cw, i);
+        }
 
-//   ParallaxManager.prototype.onScroll = function() {
-//     window.requestAnimationFrame(this.scrollHandler.bind(this));
-//   };
+        for (var _i = 0; _i < nw.length; _i++) {
+            nw[_i].className = 'letter behind';
+            nw[0].parentElement.style.opacity = 1;
+            animateLetterIn(nw, _i);
+        }
 
-//   ParallaxManager.prototype.scrollHandler = function() {
-//     var scrollY = Math.max(window.pageYOffset, 0);
-//     for (var i in this.parts) {
-//       this.parts[i].update(scrollY);
-//     }
-//   };
+        curWord = curWord == wordArr.length - 1 ? 0 : curWord + 1;
+    }
 
-//   return ParallaxManager;
-// })();
+    // nice flowy effect
+    function animateLetterOut(cw, i) {
+        setTimeout(function () {
+            cw[i].className = 'letter out';
+        }, i * 80);
+    }
 
-// new ParallaxManager(".parallax-layer");
+    function animateLetterIn(nw, i) {
+        setTimeout(function () {
+            nw[i].className = 'letter in';
+        }, 340 + i * 80);
+    }
+
+    function splitLetters(word) {
+        // stores the complete word
+        var content = word.innerHTML;
+
+        word.innerHTML = '';
+        var letters = [];
+        // makes an array of the letters
+        for (var i = 0; i < content.length; i++) {
+            var letter = document.createElement('span');
+            letter.className = 'letter';
+            letter.innerHTML = content.charAt(i);
+            word.appendChild(letter);
+            letters.push(letter);
+        }
+
+        wordArr.push(letters);
+    }
+
+    changeWord();
+    setInterval(changeWord, 4000);
+}();
 "use strict";
+
+/********* utils *******/
+function _(selector) {
+    return document.querySelectorAll(selector);
+}
 'use strict';
 
 /**
@@ -194,7 +150,7 @@ var dblPI = 2 * Math.PI;
  */
 
 var w = window.innerWidth;
-console.log(w);
+// console.log(w)
 // Amount of stars relative to the screen size
 var AMOUNT = 600;
 

@@ -1,0 +1,90 @@
+.flex-container:nth-child(even) {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.right {
+    background-color: red;
+    padding: 15%;
+    flex: 1;
+    .inner {
+        background-color: $light;
+        padding: 10%;
+    }
+}
+
+.left {
+    background-color: blue;
+    flex: 1;
+    padding: 15%;
+}
+
+// animated text
+.text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    position: absolute;
+    width: 450px;
+    left: 50%;
+    margin-left: -225px;
+    height: 40px;
+    top: 50%;
+    margin-top: -20px;
+}
+
+p {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+}
+
+.word {
+    position: absolute;
+    width: 220px;
+    opacity: 0;
+}
+
+.letter {
+    display: inline-block;
+    position: relative;
+    float: left;
+    transform: translateZ(25px);
+    transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+    transform: rotateX(90deg);
+    transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+    transform: rotateX(-90deg);
+}
+
+.letter.in {
+    transform: rotateX(0deg);
+    transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dk-green {
+    color: $dk-green;
+}
+
+.md-green {
+    color: $md-green;
+}
+
+.lt-green {
+    color: $lt-green;
+}
+
+.lt-brown {
+    color: $lt-brown;
+}
+
+.midnight {
+    color: #2c3e50;
+}

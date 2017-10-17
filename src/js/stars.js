@@ -15,7 +15,7 @@ const dblPI = 2 * Math.PI;
  */
 
 let w = window.innerWidth;
-console.log(w)
+// console.log(w)
 // Amount of stars relative to the screen size
 const AMOUNT = 600;
 

@@ -3,28 +3,3 @@
 *:after {
   box-sizing: border-box;
 }
-
-.flex-container:nth-child(even) {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  width: 80%;
-}
-
-.right {
-  background-color: red;
-  padding: 15%;
-  flex: 1;
-  .inner {
-    background-color: $light;
-    padding: 10%;
-  }
-}
-
-.left {
-  background-color: blue;
-  flex: 1;
-  padding: 15%;
-}
-
-div {}
