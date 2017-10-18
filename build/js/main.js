@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    var wh = wh = window.innerHeight;
     var right_1 = _(".right:first-child");
     var right_2 = _(".right:nth-of-type(2)");
     var right_3 = _(".right:nth-of-type(3)");
@@ -31,9 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var trees = _(".trees");
 
     _(".flex-container").forEach(function (el) {
-      new ScrollMagic.Scene({
-        triggerElement: el
-      }).setPin(el).addTo(controller);
+      new ScrollMagic.Scene({ triggerElement: el }).setPin(el).addTo(controller);
     });
 
     var introTl = new TimelineMax();
@@ -44,15 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
       yPercent: 50,
       xPercent: 100,
       ease: Power4.easeOut
-    }).from(inner_rt, 1, {
-      opacity: 0,
-      y: -205,
-      scale: 0.98
-    }, "1");
+    }).from(inner_rt, 1, { opacity: 0, y: -205, scale: 0.98 }, "1");
 
-    new ScrollMagic.Scene({
-      duration: "100%"
-    }).setTween(introTl).triggerElement(_(".content")).addIndicators().addTo(controller);
+    new ScrollMagic.Scene({ duration: "100%" }).setTween(introTl).triggerElement(_(".content")).addIndicators().addTo(controller);
   }
 }, false);
 
@@ -176,8 +167,6 @@ var dblPI = 2 * Math.PI;
  * 
  */
 
-var w = window.innerWidth;
-// console.log(w)
 // Amount of stars relative to the screen size
 var AMOUNT = 500;
 

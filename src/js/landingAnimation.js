@@ -18,7 +18,6 @@ document.addEventListener(
         }
       });
 
-      let wh = (wh = window.innerHeight);
       const right_1 = _(".right:first-child");
       const right_2 = _(".right:nth-of-type(2)");
       const right_3 = _(".right:nth-of-type(3)");
@@ -31,9 +30,7 @@ document.addEventListener(
       const trees = _(".trees");
 
       _(".flex-container").forEach(el => {
-        new ScrollMagic.Scene({
-          triggerElement: el
-        })
+        new ScrollMagic.Scene({ triggerElement: el })
           .setPin(el)
           .addTo(controller);
       });
@@ -48,20 +45,9 @@ document.addEventListener(
           xPercent: 100,
           ease: Power4.easeOut
         })
-        .from(
-          inner_rt,
-          1,
-          {
-            opacity: 0,
-            y: -205,
-            scale: 0.98
-          },
-          "1"
-        );
+        .from(inner_rt, 1, { opacity: 0, y: -205, scale: 0.98 }, "1");
 
-      new ScrollMagic.Scene({
-        duration: "100%"
-      })
+      new ScrollMagic.Scene({ duration: "100%" })
         .setTween(introTl)
         .triggerElement(_(".content"))
         .addIndicators()
