@@ -27,7 +27,7 @@ folder = {
 };
 
 // image processing
-gulp.task("img", function () {
+gulp.task("img", function() {
   var out = folder.build + "img/";
   return gulp
     .src(folder.src + "img/**/*")
@@ -40,8 +40,19 @@ gulp.task("img", function () {
     .pipe(gulp.dest(out));
 });
 
+//index
+gulp.task("index", function() {
+  var out = folder.build,
+    page = gulp.src(folder.src + "index.html");
+  // minify production code //off
+  if (!devBuild) {
+    page = page.pipe(htmlclean());
+  }
+  return page.pipe(gulp.dest(out));
+});
+
 // HTML processing
-gulp.task("html", ["img"], function () {
+gulp.task("html", ["img"], function() {
   var out = folder.build + "html/",
     page = gulp.src(folder.src + "html/**/*").pipe(newer(out));
 
@@ -54,7 +65,7 @@ gulp.task("html", ["img"], function () {
 });
 
 // JavaScript processing //change vars to reflect folders
-gulp.task("js", function () {
+gulp.task("js", function() {
   var build = gulp
     .src(folder.src + "js/**/*")
     .pipe(deporder())
@@ -73,7 +84,7 @@ gulp.task("js", function () {
 });
 
 // CSS processing // Sass
-gulp.task("css", ["img"], function () {
+gulp.task("css", ["img"], function() {
   var postCssOpts = [
     assets({
       loadPaths: ["img/"]
@@ -109,7 +120,7 @@ gulp.task("css", ["img"], function () {
 var gulp = require("gulp");
 var webserver = require("gulp-webserver");
 
-gulp.task("webserver", function () {
+gulp.task("webserver", function() {
   gulp.src("./").pipe(
     webserver({
       livereload: true,
@@ -120,12 +131,15 @@ gulp.task("webserver", function () {
 });
 
 // run all tasks
-gulp.task("run", ["html", "css", "js", "webserver"]);
+gulp.task("run", ["index", "html", "css", "js", "webserver"]);
 
 // watch for changes
-gulp.task("watch", function () {
+gulp.task("watch", function() {
   // image changes
   gulp.watch(folder.src + "img/**/*", ["img"]);
+
+  //index changes
+  gulp.watch(folder.src + "index.html", ["index"]);
 
   // html changes
   gulp.watch(folder.src + "html/**/*", ["html"]);

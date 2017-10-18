@@ -9,48 +9,51 @@
  */
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Init ScrollMagic
-  var controller = new ScrollMagic.Controller({
-    globalSceneOptions: {
-      triggerHook: "onLeave"
-    }
-  });
+  // check if mobile, this is a helper function
+  if (!isMobile.any()) {
+    // Init ScrollMagic
+    var controller = new ScrollMagic.Controller({
+      globalSceneOptions: {
+        triggerHook: "onLeave"
+      }
+    });
 
-  var wh = wh = window.innerHeight;
-  var right_1 = _(".right:first-child");
-  var right_2 = _(".right:nth-of-type(2)");
-  var right_3 = _(".right:nth-of-type(3)");
-  var inner_rt = _(".right > .inner");
-  var left_1 = _(".left:nth-of-type(1)");
-  var left_2 = _(".left:nth-of-type(2)");
-  var left_3 = _(".left:nth-of-type(3)");
-  var inner_left = _(".left > .inner");
+    var wh = wh = window.innerHeight;
+    var right_1 = _(".right:first-child");
+    var right_2 = _(".right:nth-of-type(2)");
+    var right_3 = _(".right:nth-of-type(3)");
+    var inner_rt = _(".right > .inner");
+    var left_1 = _(".left:nth-of-type(1)");
+    var left_2 = _(".left:nth-of-type(2)");
+    var left_3 = _(".left:nth-of-type(3)");
+    var inner_left = _(".left > .inner");
 
-  var trees = _(".trees");
+    var trees = _(".trees");
 
-  _(".flex-container").forEach(function (el) {
+    _(".flex-container").forEach(function (el) {
+      new ScrollMagic.Scene({
+        triggerElement: el
+      }).setPin(el).addTo(controller);
+    });
+
+    var introTl = new TimelineMax();
+    var secondTl = new TimelineMax();
+    var scramble = new TimelineMax();
+
+    introTl.from(right_1, 3, {
+      yPercent: 50,
+      xPercent: 100,
+      ease: Power4.easeOut
+    }).from(inner_rt, 1, {
+      opacity: 0,
+      y: -205,
+      scale: 0.98
+    }, "1");
+
     new ScrollMagic.Scene({
-      triggerElement: el
-    }).setPin(el).addTo(controller);
-  });
-
-  var introTl = new TimelineMax();
-  var secondTl = new TimelineMax();
-  var scramble = new TimelineMax();
-
-  introTl.from(right_1, 3, {
-    yPercent: 50,
-    xPercent: 100,
-    ease: Power4.easeOut
-  }).from(inner_rt, 1, {
-    opacity: 0,
-    y: -205,
-    scale: 0.98
-  }, "1");
-
-  new ScrollMagic.Scene({
-    duration: "100%"
-  }).setTween(introTl).triggerElement(_(".content")).addIndicators().addTo(controller);
+      duration: "100%"
+    }).setTween(introTl).triggerElement(_(".content")).addIndicators().addTo(controller);
+  }
 }, false);
 
 // a little mmodule to animate the text
@@ -124,7 +127,7 @@ var animatedText = function () {
 }();
 "use strict";
 
-/********* utils *******/
+/********* utils and helpers*******/
 
 var isMobile = {
   Android: function Android() {
@@ -155,8 +158,6 @@ var isMobile = {
 function _(selector) {
   return document.querySelectorAll(selector);
 }
-
-if (isMobile.any()) alert("Mobile");
 "use strict";
 
 /**

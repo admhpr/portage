@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- libs -->
+
+    <script src="./js/libs/greensock-js/TweenMax.min.js"></script>
+    <script src="./js/libs/greensock-js/TimelineMax.min.js"></script>
+    <script src="./js/libs/scrollmagic-js/ScrollMagic.js"></script>
+    <script src="./js/libs/scrollmagic-js/plugins/animation.gsap.min.js"></script>
+    <script src="./js/libs/scrollmagic-js/plugins/debug.addIndicators.min.js" defer></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <canvas id="stars"></canvas>
+        <h1 class="star-title">Portage Trail Outfitters</h1>
+        <h6 class="star-title sub">connect to nature</h6>
+        <img class="trees" src="./img/northernLights.png" alt="">
+    </header>
+
+    <div class="main">
+        <section class="content">
+            <div class="flex-container">
+                <div class="right">
+                    <div class="inner">
+                        <div id="scramble"></div>
+                    </div>
+                </div>
+                <div class="left"></div>
+            </div>
+            <div class="flex-container">
+                <div class="right">
+                    <div class="inner"><img src="./img/moose.png" alt=""></div>
+                </div>
+                <div class="left"></div>
+            </div>
+            <div class="flex-container">
+                <!-- animated text -->
+                <div class="right">
+                    <div class="text">
+                        <p>Portage Trail Outfitters means</p>
+                        <p>
+                            <span class="word dk-green">beauty.</span>
+                            <span class="word md-green">adventure.</span>
+                            <span class="word lt-green">nature.</span>
+                            <span class="word lt-brown">memories.</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- last left contains nav -->
+                <div class="left">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a class='packages' href='#'>Packages</a>
+                            </li>
+                            <li>
+                                <a class='lodging' href='#'>Lodging</a>
+                            </li>
+                            <li>
+                                <a class='gear' href='#'>Gear</a>
+                            </li>
+                            <li>
+                                <a class='about' href='#'>About</a>
+                            </li>
+                            <li>
+                                <a class='contact' href='#'>Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

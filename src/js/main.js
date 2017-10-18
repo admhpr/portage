@@ -1,4 +1,4 @@
-/********* utils *******/
+/********* utils and helpers*******/
 
 var isMobile = {
   Android: function() {
@@ -29,5 +29,3 @@ var isMobile = {
 function _(selector) {
   return document.querySelectorAll(selector);
 }
-
-if (isMobile.any()) alert("Mobile");
