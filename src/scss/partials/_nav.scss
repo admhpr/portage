@@ -1,57 +1,58 @@
 nav {
-    ul {
-        display: flex;
-        position: relative;
-        justify-content: flex-start;
-        max-width: 1280px;
-        margin: 0 auto;
-        li {
-            width: 20%;
-            list-style: none;
-            a {
-                display: block;
-                font-size: 1.75em;
-                line-height: 3em;
-                text-align: center;
-                text-decoration: none;
-                color: $light;
-                &:hover {
-                    background-color: $light;
-                    color: #333333;
-                    text-decoration: underline;
-                }
-            }
-            .packages {
-                border-bottom: 4px solid $dk-green;
-                &:hover {
-                    background-color: $dk-green;
-                    color: #ababab;
-                }
-            }
-            .lodging {
-                border-bottom: 4px solid $md-green;
-                &:hover {
-                    background-color: $md-green;
-                }
-            }
-            .gear {
-                border-bottom: 4px solid $lt-green;
-                &:hover {
-                    background-color: $lt-green;
-                }
-            }
-            .about {
-                border-bottom: 4px solid #C9D4A7;
-                &:hover {
-                    background-color: #C9D4A7;
-                }
-            }
-            .contact {
-                border-bottom: 4px solid #FBF9AC;
-                &:hover {
-                    background-color: #FBF9AC;
-                }
-            }
+  width: 100%;
+  ul {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    max-width: 1280px;
+    margin: 0 auto;
+    li {
+      width: 20%;
+      list-style: none;
+      a {
+        display: block;
+        font-size: 1.75em;
+        line-height: 3em;
+        text-align: center;
+        text-decoration: none;
+        color: $light;
+        &:hover {
+          background-color: $light;
+          color: #333333;
+          text-decoration: underline;
         }
+      }
+      .packages {
+        border-bottom: 4px solid $dk-green;
+        &:hover {
+          background-color: $dk-green;
+          color: #ababab;
+        }
+      }
+      .lodging {
+        border-bottom: 4px solid $md-green;
+        &:hover {
+          background-color: $md-green;
+        }
+      }
+      .gear {
+        border-bottom: 4px solid $lt-green;
+        &:hover {
+          background-color: $lt-green;
+        }
+      }
+      .about {
+        border-bottom: 4px solid #c9d4a7;
+        &:hover {
+          background-color: #c9d4a7;
+        }
+      }
+      .contact {
+        border-bottom: 4px solid #fbf9ac;
+        &:hover {
+          background-color: #fbf9ac;
+        }
+      }
     }
+  }
 }

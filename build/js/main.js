@@ -272,7 +272,7 @@ function resize() {
   }
 
   var w = window.innerWidth;
-  w < 600 ? dist_between_max = dist_between_max / 2.5 : dist_between_max = 50;
+  w < 800 ? dist_between_max = dist_between_max / 2.5 : dist_between_max = 50;
 }
 
 resize();
