@@ -10,49 +10,49 @@ document.addEventListener(
   "DOMContentLoaded",
   () => {
     // check if mobile, this is a helper function
-    // if (!isMobile.any()) {
-    // Init ScrollMagic
-    const controller = new ScrollMagic.Controller({
-      globalSceneOptions: {
-        triggerHook: "onLeave"
-      }
-    });
+    if (!isMobile.any()) {
+      // Init ScrollMagic
+      const controller = new ScrollMagic.Controller({
+        globalSceneOptions: {
+          triggerHook: "onLeave"
+        }
+      });
 
-    const right_1 = _(".right:first-child");
-    const right_2 = _(".right:nth-of-type(2)");
-    const right_3 = _(".right:nth-of-type(3)");
-    const inner_rt = _(".right > .inner");
-    const left_1 = _(".left:nth-of-type(1)");
-    const left_2 = _(".left:nth-of-type(2)");
-    const left_3 = _(".left:nth-of-type(3)");
-    const inner_left = _(".left > .inner");
+      const right_1 = _(".right:first-child");
+      const right_2 = _(".right:nth-of-type(2)");
+      const right_3 = _(".right:nth-of-type(3)");
+      const inner_rt = _(".right > .inner");
+      const left_1 = _(".left:nth-of-type(1)");
+      const left_2 = _(".left:nth-of-type(2)");
+      const left_3 = _(".left:nth-of-type(3)");
+      const inner_left = _(".left > .inner");
 
-    const trees = _(".trees");
+      const trees = _(".trees");
 
-    _(".flex-container").forEach(el => {
-      new ScrollMagic.Scene({ triggerElement: el })
-        .setPin(el)
+      _(".flex-container").forEach(el => {
+        new ScrollMagic.Scene({ triggerElement: el })
+          .setPin(el)
+          .addTo(controller);
+      });
+
+      var introTl = new TimelineMax();
+      var secondTl = new TimelineMax();
+      var scramble = new TimelineMax();
+
+      introTl
+        .from(right_1, 3, {
+          yPercent: 50,
+          xPercent: 100,
+          ease: Power4.easeOut
+        })
+        .from(inner_rt, 1, { opacity: 0, y: -205, scale: 0.98 }, "1");
+
+      new ScrollMagic.Scene({ duration: "100%" })
+        .setTween(introTl)
+        .triggerElement(_(".content"))
+        .addIndicators()
         .addTo(controller);
-    });
-
-    var introTl = new TimelineMax();
-    var secondTl = new TimelineMax();
-    var scramble = new TimelineMax();
-
-    introTl
-      .from(right_1, 3, {
-        yPercent: 50,
-        xPercent: 100,
-        ease: Power4.easeOut
-      })
-      .from(inner_rt, 1, { opacity: 0, y: -205, scale: 0.98 }, "1");
-
-    new ScrollMagic.Scene({ duration: "100%" })
-      .setTween(introTl)
-      .triggerElement(_(".content"))
-      .addIndicators()
-      .addTo(controller);
-    // }
+    }
   },
   false
 );
