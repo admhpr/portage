@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
         triggerHook: "onLeave"
       }
     });
-
     var right_1 = _(".right:first-child");
     var right_2 = _(".right:nth-of-type(2)");
     var right_3 = _(".right:nth-of-type(3)");
@@ -26,23 +25,18 @@ document.addEventListener("DOMContentLoaded", function () {
     var left_2 = _(".left:nth-of-type(2)");
     var left_3 = _(".left:nth-of-type(3)");
     var inner_left = _(".left > .inner");
-
     var trees = _(".trees");
-
     _(".flex-container").forEach(function (el) {
       new ScrollMagic.Scene({ triggerElement: el }).setPin(el).addTo(controller);
     });
-
     var introTl = new TimelineMax();
     var secondTl = new TimelineMax();
     var scramble = new TimelineMax();
-
     introTl.from(right_1, 3, {
       yPercent: 50,
       xPercent: 100,
       ease: Power4.easeOut
     }).from(inner_rt, 1, { opacity: 0, y: -205, scale: 0.98 }, "1");
-
     new ScrollMagic.Scene({ duration: "100%" }).setTween(introTl).triggerElement(_(".content")).addIndicators().addTo(controller);
   }
 }, false);

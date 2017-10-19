@@ -17,7 +17,6 @@ document.addEventListener(
           triggerHook: "onLeave"
         }
       });
-
       const right_1 = _(".right:first-child");
       const right_2 = _(".right:nth-of-type(2)");
       const right_3 = _(".right:nth-of-type(3)");
@@ -26,19 +25,15 @@ document.addEventListener(
       const left_2 = _(".left:nth-of-type(2)");
       const left_3 = _(".left:nth-of-type(3)");
       const inner_left = _(".left > .inner");
-
       const trees = _(".trees");
-
       _(".flex-container").forEach(el => {
         new ScrollMagic.Scene({ triggerElement: el })
           .setPin(el)
           .addTo(controller);
       });
-
       var introTl = new TimelineMax();
       var secondTl = new TimelineMax();
       var scramble = new TimelineMax();
-
       introTl
         .from(right_1, 3, {
           yPercent: 50,
@@ -46,7 +41,6 @@ document.addEventListener(
           ease: Power4.easeOut
         })
         .from(inner_rt, 1, { opacity: 0, y: -205, scale: 0.98 }, "1");
-
       new ScrollMagic.Scene({ duration: "100%" })
         .setTween(introTl)
         .triggerElement(_(".content"))
