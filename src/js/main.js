@@ -1,22 +1,22 @@
 /********* utils and helpers*******/
 
 var isMobile = {
-  Android: function() {
+  Android: function () {
     return navigator.userAgent.match(/Android/i);
   },
-  BlackBerry: function() {
+  BlackBerry: function () {
     return navigator.userAgent.match(/BlackBerry/i);
   },
-  iOS: function() {
+  iOS: function () {
     return navigator.userAgent.match(/iPhone|iPad|iPod/i);
   },
-  Opera: function() {
+  Opera: function () {
     return navigator.userAgent.match(/Opera Mini/i);
   },
-  Windows: function() {
+  Windows: function () {
     return navigator.userAgent.match(/IEMobile/i);
   },
-  any: function() {
+  any: function () {
     for (var prop in this) {
       if (this[prop]()) {
         return true;
@@ -28,4 +28,12 @@ var isMobile = {
 
 function _(selector) {
   return document.querySelectorAll(selector);
+}
+
+function openNav() {
+  document.getElementById("sideNav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("sideNav").style.width = "0";
 }

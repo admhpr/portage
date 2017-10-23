@@ -1,0 +1,109 @@
+    .flex-container:nth-child(even) {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .content {
+      width: 100%;
+    }
+
+    .right {
+      padding: 5%; //Let all the flexible items be the same length, regardless of its content:
+      flex: 1;
+      background-color: darken($dark, 2);
+      &.last {
+        font-size: 1.05em;
+        color: $lt-green;
+      }
+      .inner {
+        padding: 10%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .left {
+      padding: 0%;
+    } // animated text
+    .text {
+      font-family: "Open Sans", sans-serif;
+      font-size: 1.5em;
+      width: 100%;
+      height: 40px;
+      top: 50%;
+      margin-top: -20px;
+    }
+
+    p {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0;
+    }
+
+    .word {
+      position: absolute;
+      width: 220px;
+      opacity: 0;
+    }
+
+    .letter {
+      display: inline-block;
+      position: relative;
+      float: left;
+      transform: translateZ(25px);
+      transform-origin: 50% 50% 25px;
+      &.out {
+        transform: rotateX(90deg);
+        transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      }
+      &.behind {
+        transform: rotateX(-90deg);
+      }
+      &.in {
+        transform: rotateX(0deg);
+        transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+    }
+
+    .dk-green {
+      color: $dk-green;
+    }
+
+    .md-green {
+      color: $md-green;
+    }
+
+    .lt-green {
+      color: $lt-green;
+    }
+
+    .lt-brown {
+      color: $lt-brown;
+    }
+
+    .midnight {
+      color: #2c3e50;
+    } // queries
+    @media #{$desktop} {
+      .flex-container:nth-child(even) {
+        width: 80%;
+      }
+      .index {
+        .content {
+          width: 80%;
+          margin: 0 auto;
+          font-size: 1.5em;
+        }
+      }
+      .left {
+        background-color: blue;
+        flex: 1;
+        padding: 15%;
+      }
+      .left:last-child {
+        padding: 15%;
+      }
+    }

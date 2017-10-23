@@ -2,4 +2,34 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  font-family: $font;
+  font-size: 1em;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  &.index {
+    background: linear-gradient(to bottom, #002131 0%, #19629e 60%);
+    .main {
+      background: url(../img/textures/curls.png);
+      width: 100%;
+      margin-top: -20px;
+      z-index: -50;
+    }
+  }
+  &.packages {}
+  &.lodging {}
+  &.gear {
+    .main {
+      background: url(../img/textures/topography.png);
+      width: 100%;
+      margin-top: -20px;
+      z-index: -50;
+      overflow: scroll;
+    }
+  }
+  &.about {}
+  &.contact {}
 }
