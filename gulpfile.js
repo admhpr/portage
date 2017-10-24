@@ -19,7 +19,7 @@ var // modules
 
 // development mode?
 //process = (process.env.NODE_ENV !== 'production'),
-devBuild = true;
+devBuild = false;
 // folders
 folder = {
   src: "src/",
@@ -27,7 +27,7 @@ folder = {
 };
 
 // image processing
-gulp.task("img", function() {
+gulp.task("img", function () {
   var out = folder.build + "img/";
   return gulp
     .src(folder.src + "img/**/*")
@@ -41,7 +41,7 @@ gulp.task("img", function() {
 });
 
 //index
-gulp.task("index", function() {
+gulp.task("index", function () {
   var out = folder.build,
     page = gulp.src(folder.src + "index.html");
   // minify production code //off
@@ -52,7 +52,7 @@ gulp.task("index", function() {
 });
 
 // HTML processing
-gulp.task("html", ["img"], function() {
+gulp.task("html", ["img"], function () {
   var out = folder.build + "html/",
     page = gulp.src(folder.src + "html/**/*").pipe(newer(out));
 
@@ -65,7 +65,7 @@ gulp.task("html", ["img"], function() {
 });
 
 // JavaScript processing //change vars to reflect folders
-gulp.task("js", function() {
+gulp.task("js", function () {
   var build = gulp
     .src(folder.src + "js/**/*")
     .pipe(deporder())
@@ -84,7 +84,7 @@ gulp.task("js", function() {
 });
 
 // CSS processing // Sass
-gulp.task("css", ["img"], function() {
+gulp.task("css", ["img"], function () {
   var postCssOpts = [
     assets({
       loadPaths: ["img/"]
@@ -120,7 +120,7 @@ gulp.task("css", ["img"], function() {
 var gulp = require("gulp");
 var webserver = require("gulp-webserver");
 
-gulp.task("webserver", function() {
+gulp.task("webserver", function () {
   gulp.src("./").pipe(
     webserver({
       livereload: true,
@@ -134,7 +134,7 @@ gulp.task("webserver", function() {
 gulp.task("run", ["index", "html", "css", "js", "webserver"]);
 
 // watch for changes
-gulp.task("watch", function() {
+gulp.task("watch", function () {
   // image changes
   gulp.watch(folder.src + "img/**/*", ["img"]);
 
