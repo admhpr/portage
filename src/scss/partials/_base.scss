@@ -20,7 +20,17 @@ body {
     }
   }
   &.packages {}
-  &.lodging {}
+  &.lodging {
+    .main {
+      margin: 2em;
+      background: url(../img/textures/topography.png);
+      padding: 5%;
+      padding-top: 5%;
+      h2 {
+        font-size: 4em;
+      }
+    }
+  }
   &.gear {
     .main {
       background: url(../img/textures/topography.png);
@@ -30,6 +40,26 @@ body {
       overflow: scroll;
     }
   }
-  &.about {}
-  &.contact {}
+  &.about {
+    .main {
+      margin: 2em;
+      background: url(../img/textures/topography.png);
+      padding: 5%;
+      padding-top: 5%;
+      h2 {
+        font-size: 4em;
+      }
+    }
+  }
+  &.contact {
+    .main {
+      margin: 2em;
+      background: url(../img/textures/cartographer.png);
+      padding: 5%;
+      padding-top: 5%;
+      h2 {
+        font-size: 4em;
+      }
+    }
+  }
 }

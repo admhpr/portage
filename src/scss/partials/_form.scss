@@ -1,0 +1,64 @@
+form header {
+    margin: 0 0 20px 0;
+    h2 {
+        color: $dk-green;
+    }
+}
+
+form {
+    color: $dark;
+    border-top: none;
+    border-bottom: none;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3%;
+    border-radius: 2px;
+    background: $light;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.flex-outer {
+    max-width: 600px;
+    margin: 0 auto;
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 2%;
+        justify-content: flex-start;
+        max-width: 620px;
+        label,
+        legend {
+            padding: 8px;
+            /* will not shirnk or grow */
+            flex: 1 0 200px;
+            max-width: 200px;
+        }
+        input,
+        textarea {
+            width: $lg-input;
+            border: $md-green 1px solid;
+        }
+    }
+}
+
+.error-message {
+    display: block;
+    color: $error;
+}
+
+.hidden {
+    display: block;
+    visibility: hidden;
+}
+
+#saveForm {
+    background-color: $md-brown;
+    border-radius: 3px;
+    padding: 5px;
+    width: 25%;
+    color: $light;
+    &:hover {
+        background-color: darken($md-brown, 10);
+    }
+}

@@ -6,12 +6,13 @@ nav {
     justify-content: flex-start;
     max-width: 1280px;
     margin: 0 auto;
+    width: 100%;
     li {
       width: 20%;
       list-style: none;
       a {
         display: block;
-        font-size: 1.75em;
+        font-size: 1.35em;
         line-height: 3em;
         text-align: center;
         text-decoration: none;
@@ -55,16 +56,15 @@ nav {
       }
     }
   }
-}
-
+} // see index page scss for media query
 .sidenav {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: $dark;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -90,9 +90,12 @@ nav {
 
 .open-nav {
   position: fixed;
-  top: 0;
-  left: 0;
   color: $light;
+  margin-left: 10px;
+  &:hover {
+    margin-left: 1em;
+  }
+  z-index: 20;
 }
 
 @media screen and (max-height: 450px) {

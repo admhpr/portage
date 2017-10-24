@@ -1,0 +1,22 @@
+    .container-about {
+        margin: 1em;
+        display: grid;
+        grid-gap: 10px;
+        font-family: 'Open Sans', 'sans-serif';
+        color: $medium;
+        width: 100%;
+    }
+
+    #fire {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: url('../img/slider/fire.png') no-repeat center center fixed
+    }
+
+    #snow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: url('../img/lodge.jpg') no-repeat center center fixed
+    }

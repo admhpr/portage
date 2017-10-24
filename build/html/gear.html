@@ -6,90 +6,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- libs -->
-    <script src="../js/libs/greensock-js/TweenMax.min.js"></script>
-    <script src="../js/libs/greensock-js/TimelineMax.min.js"></script>
+    <script src="../js/libs/vue.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
     <div class="container-gear">
-        <span class="open-nav" style="font-size:30px;cursor:pointer" onclick="openNav()">
-            &Rang;&Rang;&Rang;&Rang;</span>
+
+
         <div id="sideNav" class="sidenav gear-nav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="../index.html">Home ⋡</a>
-            <a href="#">About ⏧</a>
+            <a href="about.html">About ⏧</a>
             <a href="packages.html">Packages ⊛</a>
-            <a href="#">Contact ⟿ </a>
+            <a href="contact.html">Contact ⟿ </a>
+            <a href="lodging.html">Lodging ∵ ∴ </a>
         </div>
 
     </div>
+
+    <!-- nav arrrow -->
+    <div class="arrow-con">
+        <span class="open-nav" style="font-size:30px;cursor:pointer" onclick="openNav()">
+            ⫽⫽⫽</span>
+    </div>
     <div class="main-gear">
         <section class="content">
+
             <div class="flex-container">
                 <div class="gear first">
-                    <h2>Used Gear for Sale</h2>
-                    <p>
-                        At Portage Trail Outfitters, we pride ourselves on keeping high quality, up to date gear available to our visitors. Because
-                        of this, we cycle our gear out every three years to make room for new items. Below you can find a
-                        current list of gently used items available for purchase.
-                    </p>
+                    <img class="cone" src="../img/cone.png" alt="">
+                    <div class="gear-inner">
+                        <div class="top">
+                            <h2>Used Gear for Sale</h2>
+                            <p>
+                                At Portage Trail Outfitters, we pride ourselves on keeping high quality, up to date gear available to our visitors. Because
+                                of this, we cycle our gear out every three years to make room for new items. Below you can
+                                find a current list of gently used items available for purchase.
+                            </p>
+                        </div>
 
-                    <div class="inner">
-                        <li>Camp Stove</li>
-                        <li>Water Filters</li>
-                        <li>Hatchet</li>
-                        <li>Saw</li>
-                        <li>Tent</li>
-                        <li>Compass</li>
-                        <li>Sleeping Bag</li>
-                        <li>Flashlight</li>
-                        <li>Kevlar canoe</li>
-                        <div class="imgs">
-                            <img src="../img/gear-i.png" alt="">
+                        <div class="slider">
+                            <ul class="slider buttons">
+                                <li>
+                                    <button class="slider-previous">&lt;</button>
+                                </li>
+                                <li>
+                                    <button class="slider-next">&gt;</button>
+                                </li>
+                            </ul>
+                            <ul class="slider-slides">
+                                <li class="slider-slide">
+                                    <img src="../img/slider/forest.jpg" alt="forest">
+                                </li>
+                                <li class="slider-slide">
+                                    <img src="../img/slider/axe.jpg" alt="axe">
+                                </li>
+                                <li class="slider-slide">
+                                    <img src="../img/slider/view.jpg" alt="view">
+                                </li>
+                                <li class="slider-slide">
+                                    <img src="../img/slider/road.jpg" alt="road">
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div id="app">
+                            <div class="search-wrapper">
+                                <input type="text" v-model="keyword" placeholder="Search gear..">
+                                <label> Search Gear</label>
+                            </div>
+                            <div class="wrapper">
+                                <div class="card" v-for="post in filteredList">
+                                    <a v-bind:href="post.link" target="_blank">
+                                        <img v-bind:src="post.img" alt="">
+                                        <small>price ${{ post.price }}</small>
+                                        {{post.title}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inner">
+                            <!-- <div class="imgs">
+                                <img src="../img/gear-i.png" alt="">
+                            </div> -->
                         </div>
                     </div>
+                    <div class="gear-alt"></div>
                 </div>
-                <div class="gear-alt"></div>
-            </div>
-            <div class="flex-container">
-                <div class="gear mid">
-                    <div class="inner">
-                        LIFE⪤⪤⪤⪤ ⪼⪼⪼ ⤑⤑⤑⤑⤑⦌' ╡ ╡ ◃◃◃◃ ⪐⨼⨼⨼⨼ ⥕
-                        <h1>EXPERIENCE</h1> ⤑⤑⤑⤑⤑⦌' ╡ ╡ ◃◃◃◃ ⪐ EXPERIENCE LIFE --⫓
+                <div class="flex-container">
+                    <div class="gear mid">
+                        <div class="wolf">
+                            LIFE⪤⪤⪤⪤ ⪼⪼⪼ ⤑⤑⤑⤑⤑⦌' ╡ ╡ ◃◃◃◃ ⪐⨼⨼⨼⨼ ⥕
+                            <h1>EXPERIENCE</h1> ⤑⤑⤑⤑⤑⦌' ╡ ╡ ◃◃◃◃ ⪐ EXPERIENCE LIFE --⫓
+                        </div>
+                    </div>
+                    <div class="gear-alt">
+                        <img src="../img/animales/wolf-lg.png" alt="wolf">
                     </div>
                 </div>
-                <div class="gear-alt">
-                    <img src="../img/animales/wolf.jpg" alt="wolf">
-                </div>
-            </div>
-            <div class="flex-container">
-                <!-- animated text -->
-                <div class="gear last">
-                    <div class="text">
-                        <p>Portage Trail Outfitters means</p>
-                        <p>
-                            <span class="word dk-green">beauty.</span>
-                            <span class="word md-green">adventure.</span>
-                            <span class="word lt-green">nature.</span>
-                            <span class="word lt-brown">memories.</span>
-                        </p>
+                <div class="flex-container">
+                    <!-- animated text -->
+                    <div class="gear last">
+                        <div class="text">
+                            <p>Portage Trail Outfitters means</p>
+                            <p>
+                                <span class="word dk-green">beauty.</span>
+                                <span class="word md-green">adventure.</span>
+                                <span class="word lt-green">nature.</span>
+                                <span class="word lt-brown">memories.</span>
+                            </p>
+                        </div>
+
+
                     </div>
+                    <!-- last gear-alt contains nav -->
+                    <div class="gear-alt">
 
-
+                    </div>
                 </div>
-                <!-- last gear-alt contains nav -->
-                <div class="gear-alt">
-
-                </div>
-            </div>
 
         </section>
+        </div>
     </div>
     <footer>
-        <div class="media">
+        <div class="gear-sm">
             <div class="gear-content">
-                ↠ © 2017 Å ≋
+                Made with ♥ and JavaScript ↠ © MIT 2017 Å ≋
             </div>
     </footer>
     </div>

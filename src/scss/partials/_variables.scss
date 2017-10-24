@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Rye');
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Coda');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /*Color Scheme*/
 
@@ -19,3 +23,26 @@ $font: "Open Sans",
 sans-serif;
 //media query vars
 $desktop: "only screen and (min-width : 44em)";
+$main-color:#254061;
+$content: #f7f5e6;
+$second: #192231;
+$third: #985e6d;
+$fourth: #254061;
+$fifth: #74cef9;
+$main-font:'Encode Sans Expanded',
+sans-serif;
+$other-font: 'Libre Barcode 39 Text',
+cursive;
+$title: 'Pacifico',
+cursive;
+$width: 1000px;
+$font: 40px;
+$lg-label: 200px;
+$lg-input: 300px;
+$input-button: 20px;
+$error: #ff0000;
+$orange: #ffd452;
+$contact: 'Coda',
+cursive;
+$gen: 'Open Sans',
+sans-serif;

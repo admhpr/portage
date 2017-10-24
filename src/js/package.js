@@ -1,4 +1,4 @@
-var package_page = (function () {
+(function () {
     var canvas = document.getElementById("paths");
     if (canvas) {
         makeCanvas(canvas);

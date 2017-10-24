@@ -1,5 +1,135 @@
 "use strict";
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+if (_("#app").length > 0) {
+    var Post = function Post(title, link, price, img) {
+        _classCallCheck(this, Post);
+
+        this.title = title;
+        this.link = link;
+        this.price = price;
+        this.img = img;
+    };
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            keyword: "",
+            postList: [new Post("Camp Stove", "https://vuejs.org/", "20.00", "../img/gear/stove.jpg"), new Post("Water Filter", "https://facebook.github.io/react/", "5.00", "../img/gear/filter.jpg"), new Post("Hatchet", "https://angularjs.org/", "10.00", "../img/gear/hatchet.jpg"), new Post("Saw", "http://emberjs.com/", "10.00", "../img/gear/saw.jpg"), new Post("Tent", "https://www.meteor.com/", "15.00", "../img/gear/tent.jpg"), new Post("Compass", "http://aurelia.io/", "1.00", "../img/gear/hatchet.jpg"), new Post("Sleeping Bag", "https://nodejs.org/en/", "40.00", "../img/gear/sleeping.jpg"), new Post("Flashlight", "https://pusher.com/", "5.00", "../img/gear/flashlight.jpg"), new Post("Kevlar Canoe", "http://feathersjs.com/", "200.00", "../img/gear/canoe.jpg")]
+        },
+        computed: {
+            filteredList: function filteredList() {
+                var _this = this;
+
+                return this.postList.filter(function (post) {
+                    return post.title.toLowerCase().includes(_this.keyword);
+                });
+            }
+        }
+    });
+}
+"use strict";
+
+(function () {
+    var canvas = document.getElementById("fire");
+    if (canvas) {
+        var Ember = function Ember() {
+            for (var i = 0; i < 23; i++) {
+                var ember = {
+                    x: Math.floor(Math.random() * canvas.width + 50),
+                    y: canvas.height + 50,
+                    speed: Math.floor(Math.random() * 11)
+                };
+
+                embers.push(ember);
+            }
+
+            function render() {
+                embers.forEach(function (b) {
+                    ctx.fillStyle = colours[Math.floor(Math.random() * 5)];;
+                    ctx.beginPath();
+                    ctx.arc(b.x, b.y, 4, 0, 2 * Math.PI);
+                    ctx.fill();
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                render();
+                embers.forEach(function (b) {
+                    b.y -= b.speed;
+                    if (b.y < -40) b.y = canvas.height + 50;
+                });
+
+                setTimeout(draw, 23);
+            }
+
+            draw();
+        };
+
+        var getRandomColor = function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+
+        var makeCanvas = function makeCanvas(canvas) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            canvas.style.zIndex = "-1";
+        };
+
+        var getRandomColor = function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+
+        // animations
+
+
+        makeCanvas(canvas);
+        window.addEventListener('resize', function (event) {
+            makeCanvas(canvas);
+        });
+
+        var ctx = canvas.getContext("2d");
+
+        var colours = ['#E25822', '#E29822', '#E2B822', '#E2222C', '#B22222', '#FFFFF0'];
+        var embers = [];
+
+        Ember();
+
+        var img = _(".img");
+        var mediaE = _(".media:nth-child(even)");
+        var mediaO = _(".media:nth-child(odd)");
+        var tl = new TimelineLite();
+
+        tl.from(mediaO, 1, {
+            x: 105,
+            autoAlpha: 0,
+            ease: Power1.easein
+        }).from(mediaE, 0.5, {
+            x: -105,
+            autoAlpha: 0,
+            ease: Power1.easein
+        }, '-=0.4').from(img, 0.5, {
+            y: -105,
+            autoAlpha: 0,
+            ease: Power1.easein
+        }, '-=0.25');
+    }
+})();
+"use strict";
+
 /**
  * The DOMContentLoaded event is fired when the initial HTML 
  * document has been completely loaded and parsed, without waiting for stylesheets, images, 
@@ -46,7 +176,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }, "1");
       new ScrollMagic.Scene({
         duration: "100%"
-      }).setTween(introTl).triggerElement(_(".content")).addIndicators().addTo(controller);
+      }).setTween(introTl).triggerElement(_(".content")).addTo(controller);
+
+      //.addIndicators() to debug
     }
   }
 }, false);
@@ -182,7 +314,7 @@ window.addEventListener("load", function () {
 });
 "use strict";
 
-var package_page = function () {
+(function () {
     var canvas = document.getElementById("paths");
     if (canvas) {
         var Path = function Path() {
@@ -288,7 +420,179 @@ var package_page = function () {
             ease: Power1.easein
         }, '-=0.25');
     }
-}();
+})();
+'use strict';
+
+(function () {
+
+    'use strict';
+
+    if (document.querySelector('.wolf')) {
+        var element, string, length;
+
+        element = document.querySelector('.wolf');
+        element.addEventListener("mouseover", function () {
+            if (typeof tracker == "undefined") {
+                var tracker = 0;
+            }
+
+            if (tracker === 0) {
+                var timer = function timer(delay, repetitions) {
+                    var n, i;
+
+                    n = 0;
+                    i = window.setInterval(function () {
+                        element.innerText = string.substring(0, n);
+                        if (n++ === repetitions) {
+                            window.clearInterval(i);
+                        }
+                    }, delay);
+                };
+
+                string = element.innerText;
+                length = string.length;
+
+                timer(50, length);
+            }
+
+            tracker += 1;
+        });
+    }
+})();
+'use strict';
+
+(function () {
+    if (_(".slider-next")) {
+        var nextBtn = _('.slider-next');
+        var prevBtn = _('.slider-previous');
+        var slides = _('.slider-slides');
+        var slidesNum = slides.children.length;
+
+        var tracker = 0;
+
+        var update = function update() {
+            var slideWidth = slides.clientWidth;
+            var offset = -tracker * slideWidth;
+            slides.setAttribute('style', 'transform: translate(' + offset + 'px)');
+        };
+
+        nextBtn.addEventListener('click', function () {
+            --tracker;
+            if (tracker < 0) tracker = slidesNum - 1;
+
+            update();
+        });
+
+        prevBtn.addEventListener('click', function () {
+            ++tracker;
+            if (tracker >= slidesNum) tracker = 0;
+            update();
+        });
+    }
+
+    // utils
+    function _(selector) {
+        return document.querySelector(selector);
+    }
+})();
+"use strict";
+
+(function () {
+    var canvas = document.getElementById("snow");
+    if (canvas) {
+        var Ember = function Ember() {
+            for (var i = 0; i < 80; i++) {
+                var ember = {
+                    x: Math.floor(Math.random() * canvas.width + 50),
+                    y: 0,
+                    speed: Math.floor(Math.random() * 11)
+                };
+
+                embers.push(ember);
+            }
+
+            function render() {
+                embers.forEach(function (b) {
+                    ctx.fillStyle = '#F4F4F4';;
+                    ctx.beginPath();
+                    ctx.arc(b.x, b.y, 4, 0, 2 * Math.PI);
+                    ctx.fill();
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                render();
+                embers.forEach(function (b) {
+                    b.y += b.speed;
+                    if (b.y > canvas.height) b.y = 0;
+                });
+
+                setTimeout(draw, 23);
+            }
+
+            draw();
+        };
+
+        var getRandomColor = function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+
+        var makeCanvas = function makeCanvas(canvas) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            canvas.style.zIndex = "-1";
+        };
+
+        var getRandomColor = function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+
+        // animations
+
+
+        makeCanvas(canvas);
+        window.addEventListener('resize', function (event) {
+            makeCanvas(canvas);
+        });
+
+        var ctx = canvas.getContext("2d");
+
+        var embers = [];
+
+        Ember();
+
+        var img = _(".img");
+        var mediaE = _(".media:nth-child(even)");
+        var mediaO = _(".media:nth-child(odd)");
+        var tl = new TimelineLite();
+
+        tl.from(mediaO, 1, {
+            x: 105,
+            autoAlpha: 0,
+            ease: Power1.easein
+        }).from(mediaE, 0.5, {
+            x: -105,
+            autoAlpha: 0,
+            ease: Power1.easein
+        }, '-=0.4').from(img, 0.5, {
+            y: -105,
+            autoAlpha: 0,
+            ease: Power1.easein
+        }, '-=0.25');
+    }
+})();
 "use strict";
 
 /**
@@ -485,3 +789,96 @@ if (canvas) {
   });
   window.addEventListener("resize", resize);
 }
+'use strict';
+
+var app = function () {
+
+    "use strict";
+
+    if (document.getElementById('form') !== null) {
+        var validate = function validate() {
+            var all_fields = makeArray(document.form);
+            var isValid = validateInput.apply(this, all_fields); // makes the function take an array of arguments
+            return isValid;
+        };
+        // primary functions
+
+        var validateInput = function validateInput(el) {
+            if (typeof el === "undefined") {
+                return false;
+            } else {
+                var args = makeArray(arguments);
+                var value;
+                var checked;
+                var radio_checked;
+                args.forEach(function (el) {
+                    if (el.type == "checkbox") {
+                        checked = isChecked(el, checked);
+                    } else if (el.type == "radio") {
+                        radio_checked = isChecked(el, radio_checked);
+                    } else if (el.type == "select-multiple") {
+                        el.selectedOptions.length === 2 ? noErrMessage(el) : displayErrMessage(el);
+                    } else if (el.type == "textarea") {
+                        //doesn't need validated;
+                    } else {
+                        value = Boolean(el.value);
+                        if (value === false) {
+                            displayErrMessage(el);
+                        } else {
+                            noErrMessage(el);
+                        }
+                    }
+                });
+                return value;
+            }
+        };
+
+        var displayErrMessage = function displayErrMessage(el) {
+            el = document.getElementById(el.classList[0] + 'Err');
+            if (el) {
+                el.classList.add('error-message');
+                el.classList.remove('hidden');
+            }
+        };
+
+        var noErrMessage = function noErrMessage(el) {
+            el = document.getElementById(el.classList[0] + 'Err');
+            if (el) {
+                el.classList.add('hidden');
+                el.classList.remove('error-message');
+            }
+        };
+
+        var isChecked = function isChecked(el, checked) {
+            // set initial value if undefined
+            if (typeof checked == "undefined") {
+                checked = false;
+            }
+            if (el.checked) {
+                checked = true;
+            }
+            if (checked) {
+                noErrMessage(el);
+            } else {
+                displayErrMessage(el);
+            }
+            return checked;
+        };
+
+        // utils
+
+
+        var makeArray = function makeArray(arrLike) {
+            // makes an array like object a true array
+            return [].slice.call(arrLike);
+        };
+
+        document.getElementById('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return validate();
+        });
+
+        return app;
+    }
+}();

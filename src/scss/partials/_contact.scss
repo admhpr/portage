@@ -1,0 +1,44 @@
+.container-contact {
+    background: url("../img/slider/road.jpg");
+    color: $light;
+    font-family: $contact;
+}
+
+.contact-content {
+    font-family: $contact;
+    font-size: 1.5em;
+    color: $dark;
+}
+
+.contact-content-blanco {
+    padding: 5%;
+    background: $dark;
+    color: $light;
+    font-size: 1.5em;
+}
+
+.icon {
+    margin: 2%;
+    .flickr {
+        color: $light;
+        &:hover {
+            color: $md-green;
+        }
+    }
+    .facebook {
+        color: $light;
+        &:hover {
+            color: $md-green;
+        }
+    }
+    .twitter {
+        color: $light;
+        &:hover {
+            color: $md-green;
+        }
+    }
+}
+
+.icon>* {
+    margin: 2%;
+}

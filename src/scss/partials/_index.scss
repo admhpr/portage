@@ -7,15 +7,20 @@
 
     .content {
       width: 100%;
+      font-family: $gen;
     }
 
     .right {
       padding: 5%; //Let all the flexible items be the same length, regardless of its content:
       flex: 1;
       background-color: darken($dark, 2);
+      border: 3px solid $dk-green;
       &.last {
         font-size: 1.05em;
         color: $lt-green;
+      }
+      &.mid {
+        background: url(../img/textures/intersection.png)
       }
       .inner {
         padding: 10%;
@@ -35,6 +40,7 @@
       height: 40px;
       top: 50%;
       margin-top: -20px;
+      margin-bottom: 2em;
     }
 
     p {
@@ -99,11 +105,20 @@
         }
       }
       .left {
-        background-color: blue;
+        background-color: $dk-green;
         flex: 1;
         padding: 15%;
       }
       .left:last-child {
         padding: 15%;
+      } // nav for index
+      nav {
+        ul {
+          li {
+            a {
+              font-size: 1.7em;
+            }
+          }
+        }
       }
     }

@@ -1,20 +1,46 @@
 .gear {
+    font-family: $gen;
     padding: 10%; //Let all the flexible items be the same length, regardless of its content:
     flex: 1;
     background-color: darken($dark, 2);
     background: url(../img/textures/binding_dark.png);
     font-size: 1.25em;
     color: $lt-green;
+    border: 5px inset $dk-green;
     .inner {
         padding: 10%;
         img {
             width: 100%;
         }
     }
+    h2 {
+        position: relative;
+        font-size: 4em;
+        z-index: 2;
+    }
+    &-sm {
+        color: $light;
+        padding: 2%;
+        background: url(../img/textures/binding_dark.png);
+    }
+    &.first {
+        padding-top: 5%;
+    }
 }
 
 .imgs {
     width: 23em;
+}
+
+.gear-inner {
+    top: 0;
+}
+
+.cone {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
 }
 
 .gear-alt {
@@ -31,7 +57,7 @@
     height: 40px;
     top: 50%;
     margin-top: -20px;
-    margin-bottom: 150px;
+    margin-bottom: 3em;
 }
 
 .main-gear {
@@ -98,8 +124,16 @@ p {
             margin: 0 auto;
         }
     }
+    .gear {
+        &.mid {
+            font-size: 3em;
+            padding: 2%;
+        }
+        &.last {
+            font-size: 1.75em;
+        }
+    }
     .gear-alt {
-        background-color: blue;
         flex: 1;
         padding: 15%;
         img {
@@ -112,5 +146,11 @@ p {
     }
     .imgs {
         float: right;
+    }
+    .top {
+        position: relative;
+        width: 80%;
+        z-index: 2;
+        top: 0;
     }
 }

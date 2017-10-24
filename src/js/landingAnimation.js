@@ -53,8 +53,9 @@ document.addEventListener(
           })
           .setTween(introTl)
           .triggerElement(_(".content"))
-          .addIndicators()
           .addTo(controller);
+
+        //.addIndicators() to debug
       }
     }
   },
