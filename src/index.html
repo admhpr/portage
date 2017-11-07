@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <title>Portage Trail Oufitters</title>
     <!--SEO-->
     <meta name="description" content="A showcase for the best of the Minnesota backwoods">
     <meta name="keywords" content="Trail,Outfitters,Portage,Open,Wilderness">
@@ -20,6 +21,7 @@
     <script src="./js/libs/scrollmagic-js/ScrollMagic.js"></script>
     <script src="./js/libs/scrollmagic-js/plugins/animation.gsap.min.js"></script>
     <script src="./js/libs/scrollmagic-js/plugins/debug.addIndicators.min.js" defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109133843-1"></script>
@@ -33,16 +35,25 @@
 
         gtag('config', 'UA-109133843-1');
     </script>
-
-    <title>Document</title>
 </head>
 
 <body class="index">
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <header>
         <canvas id="stars"></canvas>
         <h1 class="star-title">Portage Trail Outfitters</h1>
         <h6 class="star-title sub">connect to nature</h6>
-        <img class="trees" src="./img/northernLights.png" alt="">
+        <img class="trees" src="./img/northernLights.png" alt="stars">
     </header>
 
     <div class="main">
@@ -57,7 +68,7 @@
             <div class="flex-container">
                 <div class="right mid">
                     <div class="inner">
-                        <img src="./img/moose.png" alt="">
+                        <img src="./img/moose.png" alt="a moose">
                     </div>
                 </div>
                 <div class="left"></div>
@@ -77,6 +88,11 @@
                         Outfitters, keep your eyes open for a rare moose sighting, ears open for the soothing evening song
                         of the Minnesota loon, and your heart open for one of the most memorable experiences of your life.
                         Enjoy your stay!
+                        <br> Share this page:
+                        <br>
+                        <br>
+                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small"
+                            data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"> <i class="fa fa-facebook-square fa-2x facebook" aria-hidden="true"></i></a></div>
                     </p>
                     <br>
                     <br>
